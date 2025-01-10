@@ -16,4 +16,4 @@ jobs:
     environment: ${{ inputs.environment }}
     steps:
       - name: Log
-        run: echo hi ${{ env.ACC }}
+        run: echo hi $ACC
