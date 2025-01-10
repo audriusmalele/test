@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     steps:
-      - name: Log
-        run: echo env ${{ inputs.environment }} ACC ${{ vars.ACC }}
-      - name: Install clang
-        run: apt install clang
+      - run: echo env ${{ inputs.environment }} ACC ${{ vars.ACC }}
+      - run: sudo apt install clang
+      - run: clang++ --version
