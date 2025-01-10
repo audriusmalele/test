@@ -6,6 +6,11 @@ on:
         type: environment
         required: true
 jobs:
+  Debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug
+        run: echo env ${{ github.event.inputs.environment }}
   Log:
     runs-on: ubuntu-latest
     environment: ${{ github.event.inputs.environment }}
