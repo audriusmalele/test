@@ -1,0 +1,14 @@
+name: Test
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: environment
+        required: true
+jobs:
+  Log:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+    steps:
+      - name: Log
+        run: echo hi ${{ env.ACC }}
