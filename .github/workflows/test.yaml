@@ -6,14 +6,9 @@ on:
         type: environment
         required: true
 jobs:
-  Debug:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Debug
-        run: echo env ${{ inputs.environment }}
   Log:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     steps:
       - name: Log
-        run: echo hi $ACC
+        run: echo env ${{ inputs.environment }} ACC ${{ vars.ACC }}
