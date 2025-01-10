@@ -1,5 +1,6 @@
 name: Test
 on:
+  push:
   workflow_dispatch:
     inputs:
       environment:
@@ -8,7 +9,7 @@ on:
 jobs:
   Log:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
+#    environment: ${{ inputs.environment }}
     steps:
       - run: echo env ${{ inputs.environment }} ACC ${{ vars.ACC }}
       - run: sudo apt install clang
