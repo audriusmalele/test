@@ -1,16 +1,18 @@
 name: Test
 on:
-  push:
   workflow_dispatch:
     inputs:
       environment:
         type: environment
         required: true
+        options:
+          - stg
+          - prod
 jobs:
   Log:
     runs-on: ubuntu-latest
-#    environment: ${{ inputs.environment }}
+    environment: ${{ inputs.environment }}
     steps:
-#      - run: echo env ${{ inputs.environment }} ACC ${{ vars.ACC }}
+      - run: echo env ${{ inputs.environment }} ACC ${{ vars.ACC }}
       - run: sudo apt install clang
       - run: clang++ --version
