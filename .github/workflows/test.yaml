@@ -11,7 +11,7 @@ on:
 jobs:
   Log:
     runs-on: ubuntu-latest
-    environment: ${{ format('deploy_{}', inputs.environment) }}
+    environment: ${{ format('deploy_{0}', inputs.environment) }}
     steps:
       - run: echo env ${{ inputs.environment }} ACC ${{ vars.ACC }}
       - run: sudo apt install clang
