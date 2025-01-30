@@ -11,10 +11,10 @@ on:
       version:
         type: string
         required: true
+run-name: Deploy ${{ inputs.environment }} ${{ inputs.version }}
 jobs:
   Log:
     runs-on: ubuntu-latest
-    run-name: Deploy ${{ inputs.environment }} ${{ inputs.version }}
     environment: ${{ format('deploy_{0}', inputs.environment) }}
     steps:
       - run: echo env ${{ inputs.environment }} ACC ${{ vars.ACC }}
