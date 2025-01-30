@@ -8,11 +8,15 @@ on:
         options:
           - staging
           - production
+      version:
+        type: string
+        required: true
 jobs:
   Log:
     runs-on: ubuntu-latest
+    run-name: Deploy ${{ inputs.environment }} ${{ inputs.version }}
     environment: ${{ format('deploy_{0}', inputs.environment) }}
     steps:
       - run: echo env ${{ inputs.environment }} ACC ${{ vars.ACC }}
-      - run: sudo apt install clang
-      - run: clang++ --version
+      - run: sudo apt install gcc
+      - run: g++ --version
