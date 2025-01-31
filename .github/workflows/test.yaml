@@ -2,22 +2,15 @@ name: Test
 on:
   workflow_dispatch:
     inputs:
-      environment:
-        type: choice
-        required: true
-        options:
-          - staging
-          - production
       version:
         type: string
         required: true
-run-name: ${{ inputs.environment }} - ${{ inputs.version }}
+  push:
+    branches:
+      - main
+run-name: ${{ github.ref_name }} - ${{ inputs.version }}
 jobs:
   Log:
-    name: Log - ${{ inputs.environment }} - ${{ inputs.version }}
     runs-on: ubuntu-latest
-    environment: ${{ format('deploy_{0}', inputs.environment) }}
     steps:
-      - run: echo env ${{ inputs.environment }} ACC ${{ vars.ACC }}
-#      - run: sudo apt-get install gcc
-      - run: g++ --version
+      - run: echo ref ${{ github.ref_name }} version ${{ inputs.version }} final ${{ inputs.version || github.ref_name }}
