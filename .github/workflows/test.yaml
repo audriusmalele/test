@@ -14,3 +14,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo ref ${{ github.ref_name }} version ${{ inputs.version }} final ${{ inputs.version || github.ref_name }}
+      - run: git --version
