@@ -1,0 +1,17 @@
+name: Merge
+on:
+  workflow_run:
+    workflows:
+      - Test
+    types:
+      - completed
+run-name: ${{ github.ref_name }} - ${{ github.head_ref }} - ${{ github.base_ref }}
+jobs:
+  merge:
+    name: Merge
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo merging
+      - run: echo '${{ toJSON(github.event.workflow) }}'
+      - run: echo '${{ toJSON(github.event) }}'
+      - run: echo '${{ toJSON(github) }}'
