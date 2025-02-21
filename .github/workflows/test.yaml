@@ -13,3 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo testing
+      - run: echo '${{ toJSON(github.event.pull_request) }}'
+      - run: echo '${{ toJSON(github.event.push) }}'
+      - run: echo '${{ toJSON(github.event) }}'
+      - run: echo '${{ toJSON(github) }}'
