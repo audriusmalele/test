@@ -8,11 +8,6 @@ run-name: |
    - ${{ github.event.review.state }}
    - ${{ github.event.pull_request.base.ref }}
 jobs:
-  log:
-    name: Log
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo '${{ toJSON(github) }}'
   check:
     name: Check
     if: |
