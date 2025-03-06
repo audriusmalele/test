@@ -11,7 +11,7 @@ on:
       pr_number:
         type: string
         required: true
-run-name: |
+run-name: >
   ${{ github.event_name }}
    - PR ${{ inputs.pr_number || github.event.workflow_run.pull_requests[0].number || 'unknown' }}
    - workflow.name: ${{ github.event.workflow.name || 'N/A' }}
